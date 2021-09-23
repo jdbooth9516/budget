@@ -48,7 +48,20 @@ router.get("/", async (req, res) => {
     res.json(entries);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Sever Error");
+    res.status(500).send("Server Error");
+  }
+});
+
+//Route: GET /api/entries
+//Desc: get entry buy id
+//Access: public
+router.get("/:id", async (req, res) => {
+  try {
+    const entry = await Entries.findById(req.params.id);
+    res.json(entry);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
   }
 });
 

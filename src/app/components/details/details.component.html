@@ -1,1 +1,20 @@
-<p>details works!</p>
+<div class="details-container">
+  <div class="details-body">
+    <h3>Name:</h3>
+    <h5>{{ entry.name }}</h5>
+    <h3>catagory:</h3>
+    <h5>{{ entry.catagory }}</h5>
+    <h3>payee:</h3>
+    <h5>{{ entry.payee }}</h5>
+    <h3>owed:</h3>
+    <h5>{{ entry.owed }}</h5>
+    <h3>Due Date:</h3>
+    <h5>{{ entry.paymentDay }}</h5>
+    <h3>Payed:</h3>
+    <h5>{{ entry.payed }}</h5>
+    <h3>Interval:</h3>
+    <h5>{{ entry.interval }}</h5>
+  </div>
+  <!-- TODO link this to the update function. -->
+  <button>Update Entry</button>
+</div>

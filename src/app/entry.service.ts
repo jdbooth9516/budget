@@ -21,6 +21,10 @@ export class EntryService {
     return this.http.get<Entry[]>(this.apiUrl);
   }
 
+  getEntry(id: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + `/${id}`);
+  }
+
   createEntry(entry: Entry): Observable<Entry> {
     return this.http.post<Entry>(this.apiUrl, entry, httpOptions);
   }

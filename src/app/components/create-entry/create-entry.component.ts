@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Entry } from 'src/app/Entry';
 import { NavigationExtras } from '@angular/router';
 import { EntryService } from 'src/app/entry.service';
-import { OverviewComponent } from '../overview/overview.component';
 
 @Component({
   selector: 'app-create-entry',
@@ -14,8 +13,7 @@ export class CreateEntryComponent implements OnInit {
   constructor(
     private entryService: EntryService,
     private route: ActivatedRoute,
-    private router: Router,
-    private overview: OverviewComponent
+    private router: Router
   ) {}
   name!: string;
   catagory!: string;
@@ -38,10 +36,9 @@ export class CreateEntryComponent implements OnInit {
       interval: this.interval,
     };
     this.entryService.createEntry(newEntry).subscribe();
-    
+
     setTimeout(() => {
-      this.router.navigate([''], { relativeTo: this.route }),
-        this.overview.getEntries();
+      this.router.navigate([''], { relativeTo: this.route });
     }, 1000);
   }
 }

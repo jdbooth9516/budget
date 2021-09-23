@@ -6,6 +6,5 @@ export interface Entry {
   owed: number;
   paymentDay: number;
   payed: number;
-
   interval: string;
 }
