@@ -1,17 +1,25 @@
-const sqlite3 = require("sqlite3").verbose();
+const express = require("express");
+const cors = require("cors");
+const connectDB = require("./db");
 
-let db = new sqlite3.Database("./db/budget.db", (error) => {
-  if (error) {
-    console.error(error.message);
-  }
-  console.log("Connedted to budget database");
-});
+const app = express();
 
-export default function closeDb() {
-  db.close((err) => {
-    if (err) {
-      console.error(err.message);
-    }
-    console.log("Connection Closed");
-  });
+function handleError(error, res) {
+  console.error(error.message);
+  res.status(500).json({ msg: "Server Error" });
 }
+
+connectDB();
+app.use(express.json());
+
+app.use(cors());
+
+// Api Routes
+app.use("/api/entries", require("./Api/entry"));
+
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server stated on port ${PORT}`));
+
+module.exports = handleError;

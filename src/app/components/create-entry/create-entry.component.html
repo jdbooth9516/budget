@@ -1,0 +1,37 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()">
+    <label for="name">Name</label>
+    <input type="text" id="name" required [(ngModel)]="name" name="name" />
+    <label for="catagory">Catagory</label>
+    <input
+      type="text"
+      id="catagory"
+      required
+      [(ngModel)]="catagory"
+      name="catagory"
+    />
+    <label for="payee">Payee</label>
+    <input type="text " id="payee" required [(ngModel)]="payee" name="payee" />
+    <label for="owed">Owed</label>
+    <input type="number" id="owed" required [(ngModel)]="owed" name="owed" />
+    <label for="paymentDay">Due Date</label>
+    <input
+      type="number"
+      id="paymentDay"
+      required
+      [(ngModel)]="paymentDay"
+      name="name"
+    />
+    <label for="payed">payed</label>
+    <input type="number" id="payed" [(ngModel)]="payed" name="name" />
+    <label for="interval">Interval</label>
+    <input
+      type="text"
+      id="interval"
+      required
+      [(ngModel)]="interval"
+      name="interval"
+    />
+    <button type="submit">Add New Entry</button>
+  </form>
+</div>

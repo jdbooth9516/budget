@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require("electron");
-import closeDb from "./server";
+const closeDb = require("./server");
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -16,6 +16,6 @@ app.whenReady().then(() => {
 
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") {
-    app.quit(), closeDb();
+    app.quit();
   }
 });

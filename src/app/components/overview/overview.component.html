@@ -1,0 +1,54 @@
+<div class="entries">
+  <div class="entries-column">
+    <div class="entries-section">
+      <h3>Name</h3>
+    </div>
+    <div class="entries-section">
+      <h3>Catagory</h3>
+    </div>
+    <div class="entries-section">
+      <h3>payee</h3>
+    </div>
+    <div class="entries-section">
+      <h3>Owed</h3>
+    </div>
+    <div class="entries-section">
+      <h3>Payed</h3>
+    </div>
+    <div class="entries-section">
+      <h3>still due</h3>
+    </div>
+    <div class="entries-section">
+      <h3>Due Date</h3>
+    </div>
+  </div>
+  <ng-container *ngFor="let entry of entries">
+    <a routerLink="/details/{{ entry._id }}">
+      <div class="entries-column">
+        <div class="entries-section">
+          <h5>
+            {{ entry.name }}
+          </h5>
+        </div>
+        <div class="entries-section">
+          <h5>{{ entry.catagory }}</h5>
+        </div>
+        <div class="entries-section">
+          <h5>{{ entry.payee }}</h5>
+        </div>
+        <div class="entries-section">
+          <h5>{{ entry.owed }}</h5>
+        </div>
+        <div class="entries-section">
+          <h5>{{ entry.payed }}</h5>
+        </div>
+        <div class="entries-section">
+          <h5>{{ entry.owed - entry.payed }}</h5>
+        </div>
+        <div class="entries-section">
+          <h5>{{ entry.paymentDay }}</h5>
+        </div>
+      </div>
+    </a>
+  </ng-container>
+</div>
